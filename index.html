@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Philipp Heyna" />
+    <title>Philipp Heyna</title>
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header-nav></header-nav>
+
+    <main>
+      <div class="sticky-content">
+         <hero-section
+          title="Philipp Heyna"
+          avatar-image="assets/images/profile_pic_1_sq_edited.webp"
+          avatar-alt="Philipp Heyna"
+          primary-label="Research"
+          primary-href="#research"
+          secondary-label="Contact"
+          data-template-attrs="secondary-href"
+          secondary-href="mailto:{{email}}?subject={{mailSubjectEncoded}}"
+        >
+          Phd Candidate
+          @Hertie School Berlin
+          DYNAMICS Research Training Group
+        </hero-section>
+      </div>
+      <div class="scoll-content">
+        <text-block>
+          Welcome! I'm a PhD candidate at the Research Training Group <a href="https://www.sowi.hu-berlin.de/en/dynamics" target="_blank" rel="noopener">DYNAMICS</a> and at <a href="https://www.hertie-school.org/en/" target="_blank" rel="noopener">Hertie School</a> Berlin. I study political attitudes and behavior using econometric methods, with a particular focus on rising support for the far right among young people in Europe. My dissertation approaches this puzzle from several angles, including the roles of changing media environments, gender identity, and economic deprivation in shaping political preferences.
+        </text-block>
+         <text-block>
+          Please feel free to reach out if you work on similar topics or are interested in my work!
+        </text-block>
+        <!--
+        <site-divider></site-divider>
+        <section-title id="events">Events</section-title>
+        <event-list event="Something @ Event, City" date="Date"></event-list>
+        <event-list event="Conference, Coole Stadt" date="22 April 1203"></event-list>
+        <event-list event="Conference, Coole Stadt" date="22 April 1203"></event-list> 
+        <site-divider></site-divider>
+        -->
+        <section-title id="research" >Research</section-title>
+        <div class="publications-list">
+          <project-card hide-image
+            link="#"
+            vertical="false"
+            image-width="36%"
+            title="The Far-Right on TikTok: Incidental Exposure to Political Content on Social Media Can Mobilize Without Persuading"
+            description="Under Review."
+            image="assets/images/img1.png"
+           >
+            <project-card-button target="_blank" link="https://doi.org/10.31219/osf.io/yju9n_v4" label="View Preprint" width="full" bg></project-card-button>
+            <project-card-accordion label="Read Abstract">
+              Surging support for the far-right among younger cohorts in Europe has raised concerns about the consequences of far-right dominance on TikTok. However, existing correlational evidence seems ambiguous, and large-scale experiments document minimal effects of social media on political attitudes, leaving this relationship unclear. I argue that TikTok is structurally distinct: unlike traditional platforms where algorithms operate downstream of active self-selection, TikTok largely bypasses subscriber networks and exposes users incidentally to political content in entertainment-driven feeds. Under asymmetric content supply, this allows far-right actors to mobilize latent supporters who would not actively self-select into far-right content elsewhere. Based on an original data set capturing TikTok metrics of German politicians and parties and two complementary surveys, I provide robust evidence supporting this mechanism. Broad evidence reveals a clean dose-response pattern in far-right support among social media users tracking party dominance on TikTok over time, strongest among younger respondents. Platform-specific evidence confirms effects of TikTok use on AfD sympathy among latent supporters, while effects on political ideology remain limited. My findings demonstrate that TikTok can increase party support without meaningfully changing underlying political beliefs, and highlight the disruptive potential of feed algorithms for democratic stability.
+            </project-card-accordion>
+          </project-card>
+
+          <site-divider title="Work in progress"> </site-divider>
+          
+          <project-card hide-image
+            link="#"
+            vertical="false"
+            image-width="36%"
+            title="Desperate Times, Desperate Measures: Radicalism as a Valence Advantage During Crisis"
+            description="Draft available on request."
+            image="assets/images/img2.png"
+           >
+            <!--
+            <project-card-button target="_blank" link="https://www.google.com" label="View Preprint" width="full" bg></project-card-button>
+            -->
+            <project-card-accordion label="Read Abstract">
+              Radical parties often benefit from political crises, while ideological preferences of voters remain remarkably stable. Previous research shows that salience shocks can uncover representation gaps which catalyze the rise of challenger parties, such as the radical right on immigration, without requiring voter-level attitude shifts. I argue that political crises trigger an additional and more general mechanism: when voters lose confidence in the government to address a salient issue, radical parties gain a systematic valence advantage by signaling higher effectiveness and commitment to the unsolved problem. I formalize this argument as a two-dimensional extension of the Downsian model, mapping radicalism on the issue dimension to a valence advantage associated with it during crisis. I test the model on a party-election-issue panel covering 28 European democracies, defining crisis as sustained issue salience combined with declining political trust over the legislative term. For both cultural and economic issues independently, radicalism strongly predicts vote shares in crisis elections, while centrist positions are penalized. Anti-elitism shows no comparable premium, indicating that radicalism itself, not populist appeal, is rewarded during crisis. In consequence, I argue that crisis enables radical parties to convert short-term valence appeal into durable issue ownership, turning transient political shocks into lasting party system change.
+            </project-card-accordion>
+          </project-card>
+
+          <project-card hide-image
+            link="#"
+            vertical="false"
+            image-width="36%"
+            title="Masculinity, Economic Insecurity and Support for the Far-Right"
+            description="With Gaetano Inglese and Đorđe Milosav. Draft available on request."
+            image="assets/images/img2.png"
+           >
+            <!--
+            <project-card-button target="_blank" link="https://www.google.com" label="View Preprint" width="full" bg></project-card-button>
+            -->
+            <project-card-accordion label="Read Abstract">
+              Recent evidence suggests that support for far-right parties is growing among young men across Western democracies. While existing research addresses far-right support among middle-aged and older men, explanations for its growing appeal among younger men remain limited. Economic accounts stress gendered insecurity and status decline, while cultural approaches highlight backlash against changing gender norms. However, we know little about whether and how these processes interact. This paper proposes a new theoretical framework that integrates economic insecurity, masculinity, and support for the far-right. We argue that conservative young men hold expectations of upward mobility in line with traditional gender norms. Economic insecurity undermines these expectations, threatening masculine identity by generating a mismatch between the idealized provider role and their perceived ability to fulfill it. To resolve the resulting dissonance, young men adopt both externalized, aggressive strategies, such as hostile sexism and far-right support and internalized, defensive strategies, such as rejecting their own provider role. We test this argument using observational causal evidence and a survey experiment. Our findings advance the understanding of the drivers of youth support for the far-right and inform strategies to safeguard democratic stability. 
+            </project-card-accordion>
+          </project-card>
+          
+          <project-card hide-image
+            link="#"
+            vertical="false"
+            image-width="36%"
+            title="Electoral Responses to Local Cooperations with Radical-Right Parties"
+            description="With Hanno Hilbig, Violeta Haas, and Tim Wappenhans. Draft available on request."
+            image="assets/images/img3.png"
+           >
+            <!--
+            <project-card-button target="_blank" link="https://www.google.com" label="View Preprint" width="full" bg></project-card-button>
+            -->
+            <project-card-accordion label="Read Abstract">
+              What are the electoral consequences when mainstream parties breach the cordon sanitaire locally? While research focuses on national accommodation, initial breaches typically occur at the municipal level. Using original data on cooperations between the radical-right AfD and mainstream parties in East Germany (2019-2024), we estimate the electoral effects of joint legislative voting and committee appointments. Difference-in-differences and synthetic difference-in-differences estimates reveal that local cooperation leads to relative electoral losses for the AfD of about 2 percentage points. A pre-registered survey experiment and local newspaper analysis show that cooperation with the AfD does not shift issue priorities. Instead, respondents more often evaluate how local politics is conducted, and local newspapers report more on political pragmatism. This evidence is consistent with cooperation shifting voters from issue-based evaluations toward process evaluations, where the AfD's advantage on issues carries less weight. Thus, while local breaches of the Brandmauer may risk normalizing the radical right long-term, they impose local electoral costs at the next municipal election.
+            </project-card-accordion>
+          </project-card>
+          
+          <project-card hide-image
+            link="#"
+            vertical="false"
+            image-width="36%"
+            title="Why are Rural Regions Conservative? A Natural Experiment on Social Control and Conformity"
+            description="With Mark Kayser. Draft available on request."
+            image="#"
+           >
+            <!---
+            <project-card-button target="_blank" link="https://www.google.com" label="View Preprint" width="full" bg></project-card-button>
+            -->
+            <project-card-accordion label="Read Abstract">
+              That rural areas are more conservative than their urban counterparts is a fundamental regularity of modern politics. Scholars have explained this pattern with factors as varied as social and cultural homogeneity, economic structures, technological change and geographic isolation. Most findings, however, have been anecdotal or, at best, correlational due to the impossibility of experimental interventions in who lives where. We exploit a historical event from the end of World War II — the resettlement of Poles from several areas of formerly eastern and central Poland to formerly German territories in the West from which Germans had been expelled — to provide causal evidence via a geographic regression discontinuity design and analysis of mechanisms for another driver of conservatism: social control. The mixing of Poles originating from different regions broke bonds that were used in older settlements to monitor and influence behavior and attitudes, yielding a region more liberal than adjacent older regions of Poland. Our results imply that rural conservatism is not merely the product of economic or cultural developments, but reflects a fundamental and persistent relationship between population homogeneity, network density, and the enforcement of conformity, carrying broad political implications.
+            </project-card-accordion>
+          </project-card>
+        </div>
+        <site-divider></site-divider>
+        <p class="last-updated">Last updated: <time id="last-updated">October 2026</time></p>
+      </div>
+      
+    </main>
+
+    <script src="./js/main.js"></script>
+    <script src="./components/header-nav.js"></script>
+    <script src="./components/section-title.js"></script>
+    <script src="./components/text-block.js"></script>
+    <script src="./components/site-accordion.js"></script>
+    <script src="./components/event-list.js"></script>
+    <script src="./components/site-button.js"></script>
+    <script src="./components/site-avatar.js"></script>
+    <script src="./components/hero-section.js"></script>
+    <script src="./components/site-badge.js"></script>
+    <script src="./components/project-card.js"></script>
+    <script src="./components/site-divider.js"></script>
+  </body>
+</html>
