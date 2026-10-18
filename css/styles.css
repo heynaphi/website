@@ -23,17 +23,28 @@ body {
 
 body::before,
 body::after {
+  --fade-height: 112px;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
+  height: var(--fade-height);
   z-index: 9;
   content: "";
   pointer-events: none;
 }
 
+/* iOS only (Safari's floating address bar) */
+@supports (-webkit-touch-callout: none) {
+  body::before,
+  body::after {
+    top: calc(100lvh - var(--fade-height));
+    bottom: auto;
+  }
+}
+
 body::before {
-  height: calc(112px + env(safe-area-inset-bottom));
+  --fade-height: calc(112px + env(safe-area-inset-bottom));
   background: linear-gradient(
     to top,
     var(--color-page-bg) 0%,
@@ -49,7 +60,7 @@ body::before {
 }
 
 body::after {
-  height: calc(40px + env(safe-area-inset-bottom));
+  --fade-height: calc(40px + env(safe-area-inset-bottom));
   -webkit-backdrop-filter: blur(0px);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: url("#edge-lens-distortion") blur(0px);
