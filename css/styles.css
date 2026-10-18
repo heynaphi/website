@@ -34,14 +34,6 @@ body::after {
   pointer-events: none;
 }
 
-/* iOS only (Safari's floating address bar) */
-@supports (-webkit-touch-callout: none) {
-  body::before,
-  body::after {
-    top: calc(100lvh - var(--fade-height));
-    bottom: auto;
-  }
-}
 
 body::before {
   --fade-height: calc(112px + env(safe-area-inset-bottom));
@@ -67,6 +59,35 @@ body::after {
   backdrop-filter: url("#edge-lens-distortion") blur(0px);
   -webkit-mask-image: linear-gradient(to top, #000 0%, rgb(0 0 0 / 70%) 28%, transparent 76%);
   mask-image: linear-gradient(to top, #000 0%, rgb(0 0 0 / 70%) 28%, transparent 76%);
+}
+
+/* iOS only: Safari 26 clips fixed layers that touch the bottom edge at the top
+   of its floating address bar. Full-screen, never fully opaque layers are not
+   clipped, so on iOS the fade becomes a full-screen layer whose gradient only
+   occupies the bottom --fade-height pixels. */
+@supports (-webkit-touch-callout: none) {
+  body::before,
+  body::after {
+    top: 0;
+    bottom: 0;
+    height: auto;
+  }
+
+  body::before {
+    background: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--color-page-bg) 99%, transparent) 0,
+      color-mix(in srgb, var(--color-page-bg) 72%, transparent) calc(var(--fade-height) * 0.44),
+      transparent var(--fade-height)
+    );
+    -webkit-mask-image: linear-gradient(to top, #000 0, #000 calc(var(--fade-height) * 0.46), transparent var(--fade-height));
+    mask-image: linear-gradient(to top, #000 0, #000 calc(var(--fade-height) * 0.46), transparent var(--fade-height));
+  }
+
+  body::after {
+    -webkit-mask-image: linear-gradient(to top, #000 0, rgb(0 0 0 / 70%) calc(var(--fade-height) * 0.28), transparent calc(var(--fade-height) * 0.76));
+    mask-image: linear-gradient(to top, #000 0, rgb(0 0 0 / 70%) calc(var(--fade-height) * 0.28), transparent calc(var(--fade-height) * 0.76));
+  }
 }
 
 .container {
