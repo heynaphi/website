@@ -1,6 +1,6 @@
 
 html {
-  --nav-safe-offset: 96px;
+  --nav-safe-offset: calc(96px + env(safe-area-inset-top));
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-safe-offset);
 }
@@ -10,9 +10,9 @@ body {
   font-family: var(--font-sans);
   background: var(--color-page-bg);
   color: var(--color-text);
-  padding-left: var(--container-padding);
-  padding-bottom: var(--container-padding);
-  padding-right: var(--container-padding);
+  padding-left: max(var(--container-padding), env(safe-area-inset-left));
+  padding-bottom: calc(var(--container-padding) + env(safe-area-inset-bottom));
+  padding-right: max(var(--container-padding), env(safe-area-inset-right));
 }
 
 ::selection {
@@ -33,7 +33,7 @@ body::after {
 }
 
 body::before {
-  height: 112px;
+  height: calc(112px + env(safe-area-inset-bottom));
   background: linear-gradient(
     to top,
     var(--color-page-bg) 0%,
@@ -49,7 +49,7 @@ body::before {
 }
 
 body::after {
-  height: 40px;
+  height: calc(40px + env(safe-area-inset-bottom));
   -webkit-backdrop-filter: blur(0px);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: url("#edge-lens-distortion") blur(0px);
@@ -67,6 +67,7 @@ body::after {
   position: sticky;
   top: 0;
   z-index: 10;
+  padding-top: env(safe-area-inset-top);
   background: transparent;
   isolation: isolate;
 }
@@ -78,7 +79,7 @@ body::after {
   right: 0;
   top: 0;
   z-index: 0;
-  height: 112px;
+  height: calc(112px + env(safe-area-inset-top));
   content: "";
   pointer-events: none;
 }
@@ -99,7 +100,7 @@ body::after {
 }
 
 .site-header::after {
-  height: 40px;
+  height: calc(40px + env(safe-area-inset-top));
   -webkit-backdrop-filter: blur(0px);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: url("#edge-lens-distortion") blur(0px);
