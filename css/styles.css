@@ -61,32 +61,13 @@ body::after {
   mask-image: linear-gradient(to top, #000 0%, rgb(0 0 0 / 70%) 28%, transparent 76%);
 }
 
-/* iOS only: Safari 26 clips fixed layers that touch the bottom edge at the top
-   of its floating address bar. Full-screen, never fully opaque layers are not
-   clipped, so on iOS the fade becomes a full-screen layer whose gradient only
-   occupies the bottom --fade-height pixels. */
+/* iOS: Safari 26 cuts fixed layers off at the top of its floating address bar,
+   so the custom bottom fade can't reach the screen edge there. Hide it on iOS
+   and let Safari draw its own soft edge under the bar instead. */
 @supports (-webkit-touch-callout: none) {
   body::before,
   body::after {
-    top: 0;
-    bottom: 0;
-    height: auto;
-  }
-
-  body::before {
-    background: linear-gradient(
-      to top,
-      color-mix(in srgb, var(--color-page-bg) 99%, transparent) 0,
-      color-mix(in srgb, var(--color-page-bg) 72%, transparent) calc(var(--fade-height) * 0.44),
-      transparent var(--fade-height)
-    );
-    -webkit-mask-image: linear-gradient(to top, #000 0, #000 calc(var(--fade-height) * 0.46), transparent var(--fade-height));
-    mask-image: linear-gradient(to top, #000 0, #000 calc(var(--fade-height) * 0.46), transparent var(--fade-height));
-  }
-
-  body::after {
-    -webkit-mask-image: linear-gradient(to top, #000 0, rgb(0 0 0 / 70%) calc(var(--fade-height) * 0.28), transparent calc(var(--fade-height) * 0.76));
-    mask-image: linear-gradient(to top, #000 0, rgb(0 0 0 / 70%) calc(var(--fade-height) * 0.28), transparent calc(var(--fade-height) * 0.76));
+    display: none;
   }
 }
 
