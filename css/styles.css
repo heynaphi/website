@@ -308,6 +308,10 @@ hero-section {
   min-width: 0;
 }
 
+.hero-section__action[hidden] {
+  display: none;
+}
+
 section-title {
   display: block;
   width: 100%;
@@ -924,6 +928,11 @@ project-card[vertical="false"] {
     align-items: center;
     justify-content: flex-end;
     gap: 32px;
+  }
+
+  /* Desktop has CV in the top navigation, so hide the hero CV button */
+  .hero-section__action--mobile-only {
+    display: none;
   }
 
   .sticky-content {

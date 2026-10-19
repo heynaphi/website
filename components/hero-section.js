@@ -10,6 +10,9 @@ heroSectionTemplate.innerHTML = `
         <a class="hero-section__action" data-action="primary">
           <site-button as="span" width="full" bg></site-button>
         </a>
+        <a class="hero-section__action hero-section__action--mobile-only" data-action="tertiary" target="_blank" rel="noopener">
+          <site-button as="span" width="full" bg></site-button>
+        </a>
         <a class="hero-section__action" data-action="secondary">
           <site-button as="span" width="full" bg></site-button>
         </a>
@@ -20,7 +23,7 @@ heroSectionTemplate.innerHTML = `
 
 class HeroSection extends HTMLElement {
   static get observedAttributes() {
-    return ["avatar-alt", "avatar-image", "primary-href", "primary-label", "secondary-href", "secondary-label", "title"];
+    return ["avatar-alt", "avatar-image", "primary-href", "primary-label", "secondary-href", "secondary-label", "tertiary-href", "tertiary-label", "title"];
   }
 
   connectedCallback() {
@@ -57,6 +60,8 @@ class HeroSection extends HTMLElement {
     const secondaryLink = this.querySelector('[data-action="secondary"]');
     const primaryButton = primaryLink?.querySelector("site-button");
     const secondaryButton = secondaryLink?.querySelector("site-button");
+    const tertiaryLink = this.querySelector('[data-action="tertiary"]');
+    const tertiaryButton = tertiaryLink?.querySelector("site-button");
 
     if (avatar) {
       avatar.setAttribute("image", this.getAttribute("avatar-image") || "");
@@ -90,6 +95,17 @@ class HeroSection extends HTMLElement {
 
     if (secondaryButton) {
       secondaryButton.setAttribute("label", this.getAttribute("secondary-label") || "Contact");
+    }
+
+    // Optional middle button (e.g. CV), only shown when tertiary-href is set.
+    if (tertiaryLink) {
+      const tertiaryHref = this.getAttribute("tertiary-href");
+      tertiaryLink.hidden = !tertiaryHref;
+      tertiaryLink.href = tertiaryHref || "#";
+    }
+
+    if (tertiaryButton) {
+      tertiaryButton.setAttribute("label", this.getAttribute("tertiary-label") || "CV");
     }
   }
 }
