@@ -298,14 +298,22 @@ hero-section {
 
 .hero-section__actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   width: 100%;
 }
 
 .hero-section__action {
-  flex: 1 0 0;
+  flex: 1 0 calc(50% - 8px);
   min-width: 0;
+}
+
+/* CV button: second row, centered, same width as the buttons above */
+.hero-section__action--mobile-only {
+  order: 3;
+  flex: 0 0 calc(50% - 8px);
 }
 
 .hero-section__action[hidden] {
